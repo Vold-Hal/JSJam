@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://jed7iukhvfdi"]
+
+[ext_resource type="Texture2D" uid="uid://cw3fgxe8m6wcg" path="res://Graphics/LevelTileSet.png" id="1_h414x"]
+[ext_resource type="Script" path="res://Scenes/TileMap.gd" id="2_ugxe8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ee0io"]
+texture = ExtResource("1_h414x")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_v0fgm"]
+sources/0 = SubResource("TileSetAtlasSource_ee0io")
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_v0fgm")
+format = 2
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_ugxe8")
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(228, 128)
+zoom = Vector2(2.52, 2.52)
