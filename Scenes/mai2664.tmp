@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jed7iukhvfdi"]
+[gd_scene load_steps=5 format=3 uid="uid://jed7iukhvfdi"]
 
 [ext_resource type="MeshLibrary" uid="uid://bj0bcy6fo6au2" path="res://LandTilesLibrary.tres" id="1_eko05"]
 [ext_resource type="Script" path="res://Scenes/GridMap.gd" id="3_2njur"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="Environment" id="Environment_3ohv8"]
 ambient_light_source = 3
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_shb8n"]
-size = Vector3(190.659, 10.316, 201.152)
 
 [node name="MainLevel" type="Node3D"]
 
@@ -37,9 +34,3 @@ size = 36.238
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3ohv8")
-
-[node name="MousePlane" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MousePlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.53351, 0)
-shape = SubResource("BoxShape3D_shb8n")

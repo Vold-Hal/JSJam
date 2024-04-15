@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cube.001",
+			"name":"water_tile",
 			"scale":[
 				5,
 				0.8022781014442444,
@@ -35,7 +35,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cube.001",
+			"name":"water_tile",
 			"primitives":[
 				{
 					"attributes":{
