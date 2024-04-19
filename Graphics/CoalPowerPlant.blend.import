@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6t76sa40pmb4"
-path="res://.godot/imported/Coal.blend-cef47e2752f910f61ecd73a2cf3ad907.scn"
+uid="uid://d17k20meg7sqv"
+path="res://.godot/imported/CoalPowerPlant.blend-5a61c03dee76d36b18651771a4f4a9af.scn"
 
 [deps]
 
-source_file="res://Graphics/Coal.blend"
-dest_files=["res://.godot/imported/Coal.blend-cef47e2752f910f61ecd73a2cf3ad907.scn"]
+source_file="res://Graphics/CoalPowerPlant.blend"
+dest_files=["res://.godot/imported/CoalPowerPlant.blend-5a61c03dee76d36b18651771a4f4a9af.scn"]
 
 [params]
 

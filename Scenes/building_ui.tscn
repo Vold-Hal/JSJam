@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyugj664hgddw"]
+
+[ext_resource type="Script" path="res://Scenes/building_ui.gd" id="1_fxhwd"]
+
+[sub_resource type="Theme" id="Theme_ua3ld"]
+/colors/button = Color(1, 1, 1, 1)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_color = Color(1, 1, 1, 0)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+Button/colors/icon_normal_color = Color(1, 1, 1, 0)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_glea0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vad1i"]
+line_spacing = 0.0
+font_size = 12
+
+[node name="BuildingUI" type="Control"]
+layout_mode = 3
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(115.2, 328)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_fxhwd")
+
+[node name="BuildingMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ua3ld")
+
+[node name="BuildingOption0" type="PanelContainer" parent="BuildingMenu"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BuildingMenu/BuildingOption0"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="text" type="VBoxContainer" parent="BuildingMenu/BuildingOption0/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="BuildingMenu/BuildingOption0/MarginContainer/text"]
+layout_mode = 2
+text = "Building Name"
+label_settings = SubResource("LabelSettings_glea0")
+
+[node name="Description" type="Label" parent="BuildingMenu/BuildingOption0/MarginContainer/text"]
+layout_mode = 2
+text = "Building time: 0
+Pwr/day: 0
+Cost: 0"
+label_settings = SubResource("LabelSettings_vad1i")
+
+[node name="Button" type="Button" parent="BuildingMenu/BuildingOption0"]
+layout_mode = 2
+flat = true

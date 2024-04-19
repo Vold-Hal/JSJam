@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://jed7iukhvfdi"]
+[gd_scene load_steps=8 format=3 uid="uid://jed7iukhvfdi"]
 
 [ext_resource type="MeshLibrary" uid="uid://bj0bcy6fo6au2" path="res://LandTilesLibrary.tres" id="1_eko05"]
+[ext_resource type="Script" path="res://Scenes/main_level.gd" id="1_u4p7f"]
 [ext_resource type="Script" path="res://Scenes/GridMap.gd" id="3_2njur"]
-[ext_resource type="PackedScene" uid="uid://bshk6ns3l36hs" path="res://Graphics/Reactors.blend" id="3_ommj7"]
+[ext_resource type="Script" path="res://Scenes/Buildings.gd" id="4_5v8q0"]
+[ext_resource type="PackedScene" uid="uid://1jlx5j4w4r2m" path="res://Scenes/main_ui.tscn" id="6_lksst"]
 
 [sub_resource type="Environment" id="Environment_3ohv8"]
 ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.31
+reflected_light_source = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_shb8n"]
 size = Vector3(190.659, 10.316, 201.152)
 
 [node name="MainLevel" type="Node3D"]
-
-[node name="Reactors" parent="." instance=ExtResource("3_ommj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3355, 3, -14.7499)
+script = ExtResource("1_u4p7f")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_eko05")
@@ -43,3 +46,10 @@ environment = SubResource("Environment_3ohv8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MousePlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.53351, 0)
 shape = SubResource("BoxShape3D_shb8n")
+
+[node name="Buildings" type="Node3D" parent="."]
+script = ExtResource("4_5v8q0")
+
+[node name="MainUI" parent="." instance=ExtResource("6_lksst")]
+
+[connection signal="screen_touched" from="MainUI" to="GridMap" method="_mouse_clicked_on_screen"]

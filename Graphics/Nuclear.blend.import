@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bshk6ns3l36hs"
-path="res://.godot/imported/Reactors.blend-de44aab14183b96caeaa8d382cb691ba.scn"
+path="res://.godot/imported/Nuclear.blend-0bee291f2700145850de7799fe450601.scn"
 
 [deps]
 
-source_file="res://Graphics/Reactors.blend"
-dest_files=["res://.godot/imported/Reactors.blend-de44aab14183b96caeaa8d382cb691ba.scn"]
+source_file="res://Graphics/Nuclear.blend"
+dest_files=["res://.godot/imported/Nuclear.blend-0bee291f2700145850de7799fe450601.scn"]
 
 [params]
 
@@ -33,6 +33,12 @@ _subresources={
 "nodes": {
 "PATH:Cylinder": {
 "occluder/simplification_distance": 0.1
+},
+"PATH:Cylinder_003": {
+"import/skip_import": true
+},
+"PATH:Cylinder_004": {
+"import/skip_import": true
 }
 }
 }

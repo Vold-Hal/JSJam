@@ -1,0 +1,165 @@
+[gd_scene load_steps=11 format=3 uid="uid://cy3gjn8t8qp3c"]
+
+[ext_resource type="PackedScene" uid="uid://catdm88ukq6bm" path="res://Scenes/building_template.tscn" id="1_tsybs"]
+[ext_resource type="Script" path="res://Scenes/coal_power_plant.gd" id="2_limgi"]
+[ext_resource type="PackedScene" uid="uid://d17k20meg7sqv" path="res://Graphics/CoalPowerPlant.blend" id="3_hjxnr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbitf"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_a0gvr"]
+
+[sub_resource type="Curve" id="Curve_jali6"]
+min_value = 1.0
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1.83516), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7nh0j"]
+offsets = PackedFloat32Array(0, 0.26, 0.813333, 1)
+colors = PackedColorArray(0.145098, 0.145098, 0.145098, 0, 0.145098, 0.145098, 0.145098, 0.898039, 0.129412, 0.129412, 0.129412, 0.682353, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_065a8"]
+albedo_color = Color(0.278431, 0.00392157, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rknn"]
+albedo_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tm8ss"]
+albedo_color = Color(0.380392, 0, 0.027451, 1)
+
+[node name="CoalPowerPlant" instance=ExtResource("1_tsybs")]
+script = ExtResource("2_limgi")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Particles" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983401, 4.96937, 2.81082)
+material_override = SubResource("StandardMaterial3D_nbitf")
+cast_shadow = 0
+amount = 5
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_a0gvr")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_jali6")
+color_ramp = SubResource("Gradient_7nh0j")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="Particles" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983401, 4.96937, 4.09454)
+material_override = SubResource("StandardMaterial3D_nbitf")
+cast_shadow = 0
+amount = 5
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_a0gvr")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_jali6")
+color_ramp = SubResource("Gradient_7nh0j")
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="Particles" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33253, 4.96937, -1.14079)
+material_override = SubResource("StandardMaterial3D_nbitf")
+cast_shadow = 0
+amount = 5
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_a0gvr")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_jali6")
+color_ramp = SubResource("Gradient_7nh0j")
+
+[node name="CPUParticles3D4" type="CPUParticles3D" parent="Particles" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33253, 4.96937, -2.40231)
+material_override = SubResource("StandardMaterial3D_nbitf")
+cast_shadow = 0
+amount = 5
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_a0gvr")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_jali6")
+color_ramp = SubResource("Gradient_7nh0j")
+
+[node name="CPUParticles3D5" type="CPUParticles3D" parent="Particles" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33253, 4.96937, -3.68433)
+material_override = SubResource("StandardMaterial3D_nbitf")
+cast_shadow = 0
+amount = 5
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_a0gvr")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_jali6")
+color_ramp = SubResource("Gradient_7nh0j")
+
+[node name="CoalPowerPlant" parent="Model" index="0" instance=ExtResource("3_hjxnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520809, 0, 0)
+
+[node name="Cube" parent="Model/CoalPowerPlant" index="0"]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, -0.775, 0, -2.077)
+surface_material_override/0 = SubResource("StandardMaterial3D_065a8")
+
+[node name="Cube_001" parent="Model/CoalPowerPlant" index="1"]
+transform = Transform3D(0.631512, 0, 0, 0, 0.631512, 0, 0, 0, 0.631512, 3.498, 0, -1.841)
+surface_material_override/0 = SubResource("StandardMaterial3D_065a8")
+
+[node name="Cylinder_001" parent="Model/CoalPowerPlant" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5rknn")
+surface_material_override/1 = SubResource("StandardMaterial3D_tm8ss")
+
+[node name="Cylinder_002" parent="Model/CoalPowerPlant" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5rknn")
+surface_material_override/1 = SubResource("StandardMaterial3D_tm8ss")
+
+[node name="Cylinder_003" parent="Model/CoalPowerPlant" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5rknn")
+surface_material_override/1 = SubResource("StandardMaterial3D_tm8ss")
+
+[node name="Cube_002" parent="Model/CoalPowerPlant" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_065a8")
+
+[node name="Cube_003" parent="Model/CoalPowerPlant" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_065a8")
+
+[node name="Cylinder_005" parent="Model/CoalPowerPlant" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5rknn")
+surface_material_override/1 = SubResource("StandardMaterial3D_tm8ss")
+
+[node name="Cylinder_006" parent="Model/CoalPowerPlant" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5rknn")
+surface_material_override/1 = SubResource("StandardMaterial3D_tm8ss")
+
+[node name="Cube_004" parent="Model/CoalPowerPlant" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_065a8")
+
+[editable path="Model/CoalPowerPlant"]

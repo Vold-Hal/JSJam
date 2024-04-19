@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://jed7iukhvfdi"]
+
+[ext_resource type="MeshLibrary" uid="uid://bj0bcy6fo6au2" path="res://LandTilesLibrary.tres" id="1_eko05"]
+[ext_resource type="Script" path="res://Scenes/main_level.gd" id="1_u4p7f"]
+[ext_resource type="Script" path="res://Scenes/GridMap.gd" id="3_2njur"]
+[ext_resource type="PackedScene" uid="uid://bshk6ns3l36hs" path="res://Graphics/Reactors.blend" id="3_ommj7"]
+[ext_resource type="Script" path="res://Scenes/Buildings.gd" id="4_5v8q0"]
+[ext_resource type="PackedScene" uid="uid://1jlx5j4w4r2m" path="res://Scenes/main_ui.tscn" id="6_lksst"]
+
+[sub_resource type="Environment" id="Environment_3ohv8"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.31
+reflected_light_source = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shb8n"]
+size = Vector3(190.659, 10.316, 201.152)
+
+[node name="MainLevel" type="Node3D"]
+script = ExtResource("1_u4p7f")
+
+[node name="Reactors" parent="." instance=ExtResource("3_ommj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3355, 3, -14.7499)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_eko05")
+cell_size = Vector3(10, 2, 10)
+data = {
+"cells": PackedInt32Array(65535, 0, 0, 65535, 65534, 1, 65535, 65535, 1, 65534, 65534, 0, 65533, 65535, 1, 65533, 0, 1, 65534, 0, 1, 65534, 65535, 1, 65533, 65534, 1, 65533, 1, 1, 65534, 1, 1, 65534, 2, 1, 65535, 2, 1, 65535, 1, 1, 0, 1, 1, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 2, 1, 65533, 2, 1, 1, 2, 1, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 65532, 2, 0, 65532, 1, 0, 65532, 0, 0, 65532, 65535, 0, 65532, 65534, 0, 65532, 65533, 0, 65533, 65533, 1, 65534, 65533, 1, 65534, 65532, 0, 65535, 65532, 0, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 0, 1, 65532, 0, 0, 65532, 0, 65533, 65532, 0, 65532, 65532, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 2, 2, 0, 2, 1, 0, 2, 0, 0, 2, 65535, 0, 2, 65532, 0, 2, 65533, 0, 2, 65534, 0)
+}
+script = ExtResource("3_2njur")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.275061, 0.79024, 0.547597, -0.748233, -0.181709, 0.638067, 0.60373, -0.585237, 0.541302, 39.7825, 8.67806, -16.9646)
+light_energy = 2.616
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 7.261
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -33.555, 45, 30.99)
+fov = 46.2
+size = 36.238
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3ohv8")
+
+[node name="MousePlane" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MousePlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.53351, 0)
+shape = SubResource("BoxShape3D_shb8n")
+
+[node name="Buildings" type="Node3D" parent="."]
+script = ExtResource("4_5v8q0")
+
+[node name="MainUI" parent="." instance=ExtResource("6_lksst")]

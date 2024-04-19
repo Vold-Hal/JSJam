@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://catdm88ukq6bm"]
+
+[ext_resource type="Script" path="res://BuildingTemplate.gd" id="1_f41m0"]
+
+[node name="BuildingTemplate" type="Node3D"]
+script = ExtResource("1_f41m0")
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="Model" type="Node3D" parent="."]

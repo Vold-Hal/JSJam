@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://dullds2pp71ho"]
+
+[ext_resource type="PackedScene" uid="uid://catdm88ukq6bm" path="res://Scenes/building_template.tscn" id="1_4mlqn"]
+[ext_resource type="PackedScene" uid="uid://bshk6ns3l36hs" path="res://Graphics/Nuclear.blend" id="2_de3k5"]
+[ext_resource type="Script" path="res://Scenes/nuclear_power_plant.gd" id="2_jflw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2fcb"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ggyaw"]
+
+[sub_resource type="Curve" id="Curve_2nt3o"]
+min_value = 1.0
+max_value = 3.0
+_data = [Vector2(0, 1.98901), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ahfcj"]
+offsets = PackedFloat32Array(0, 0.26, 0.606667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.716296, 0.716296, 0.716296, 0.898039, 0.60933, 0.60933, 0.60933, 0.682353, 1, 1, 1, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cg44i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bk1s8"]
+albedo_color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd8eq"]
+albedo_color = Color(0.784314, 0.0784314, 0.0235294, 1)
+
+[node name="NuclearPowerPlant" instance=ExtResource("1_4mlqn")]
+script = ExtResource("2_jflw1")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Particles" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07086, 3.53176, 2.37099)
+material_override = SubResource("StandardMaterial3D_t2fcb")
+cast_shadow = 0
+amount = 20
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_ggyaw")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_2nt3o")
+color_ramp = SubResource("Gradient_ahfcj")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="Particles" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03109, 3.53176, -2.32131)
+material_override = SubResource("StandardMaterial3D_t2fcb")
+cast_shadow = 0
+amount = 20
+lifetime = 3.0
+fixed_fps = 30
+mesh = SubResource("SphereMesh_cg44i")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_2nt3o")
+color_ramp = SubResource("Gradient_ahfcj")
+
+[node name="Reactors" parent="Model" index="0" instance=ExtResource("2_de3k5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.1202, -0.0140066, 0.128434)
+
+[node name="Cylinder" parent="Model/Reactors" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+surface_material_override/1 = SubResource("StandardMaterial3D_nd8eq")
+
+[node name="Cylinder_001" parent="Model/Reactors" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+surface_material_override/1 = SubResource("StandardMaterial3D_nd8eq")
+
+[node name="Cylinder_002" parent="Model/Reactors" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+surface_material_override/1 = SubResource("StandardMaterial3D_nd8eq")
+
+[node name="Cube_001" parent="Model/Reactors" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+
+[editable path="Model/Reactors"]
