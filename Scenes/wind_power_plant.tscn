@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbimo03s4w637"]
+
+[ext_resource type="PackedScene" uid="uid://catdm88ukq6bm" path="res://Scenes/building_template.tscn" id="1_1onfr"]
+[ext_resource type="Script" path="res://WindPowerPlant.gd" id="2_vvfwy"]
+[ext_resource type="PackedScene" uid="uid://dvak7hi2y4spn" path="res://Graphics/WindFarm.blend" id="3_ihhat"]
+
+[sub_resource type="Animation" id="Animation_eqtk8"]
+resource_name = "EmptyAction"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Empty")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.00873035, 0.999962, 0.0333333, 1, 0, 0, -0.0174562, 0.999848, 2.96667, 1, 0, 0, -0.999848, 0.0174486, 3, 1, 0, 0, 1, 3.85841e-06, 5.96667, 1, 0, 0, 0.0174486, 0.999848, 6, 1, 0, 0, -3.90212e-06, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Empty_001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -3.8147e-06, 1)
+
+[sub_resource type="Animation" id="Animation_j0bv6"]
+resource_name = "EmptyAction_001"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Empty_001")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.00873035, 0.999962, 0.0333333, 1, 0, 0, -0.0174562, 0.999848, 2.96667, 1, 0, 0, -0.999848, 0.0174486, 3, 1, 0, 0, 1, 3.85841e-06, 5.96667, 1, 0, 0, 0.0174486, 0.999848, 6, 1, 0, 0, -3.90212e-06, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Empty")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -3.8147e-06, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6y5p"]
+_data = {
+"EmptyAction": SubResource("Animation_eqtk8"),
+"EmptyAction_001": SubResource("Animation_j0bv6")
+}
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_jndqa"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6vlmf"]
+animation = &"EmptyAction_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_754dc"]
+animation = &"EmptyAction"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4shsg"]
+graph_offset = Vector2(-416.461, 88.3222)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_jndqa")
+nodes/Add2/position = Vector2(191.282, 182.872)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_754dc")
+nodes/Animation/position = Vector2(20, 140)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_6vlmf")
+"nodes/Animation 2/position" = Vector2(20, 260)
+nodes/output/position = Vector2(360, 200)
+node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"output", 0, &"Add2"]
+
+[node name="WindPowerPlant" instance=ExtResource("1_1onfr")]
+script = ExtResource("2_vvfwy")
+
+[node name="WindFarm" parent="Model" index="0" instance=ExtResource("3_ihhat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.399173)
+
+[node name="Empty" parent="Model/WindFarm" index="0"]
+transform = Transform3D(0.58885, 0.0102829, 0, -0.0102829, 0.58885, 0, 0, 0, 0.588939, 2.21288, 5.72288, 1.32965)
+
+[node name="Plane" parent="Model/WindFarm/Empty" index="0"]
+transform = Transform3D(0.0848102, 0, -9.31323e-10, -1.16415e-10, 0, -0.744422, 0, 1.69797, 0, 4.76837e-07, -4.86374e-05, 0.101401)
+
+[node name="Plane_001" parent="Model/WindFarm/Empty" index="1"]
+transform = Transform3D(-0.0424051, -5.06034e-08, -0.644688, -0.0734477, 1.11022e-16, 0.372211, 2.52754e-09, 1.69797, -8.8742e-08, 4.76837e-07, -4.86374e-05, 0.101401)
+
+[node name="Plane_002" parent="Model/WindFarm/Empty" index="2"]
+transform = Transform3D(-0.0424051, 1.5181e-07, 0.644688, 0.0734478, -2.22045e-16, 0.372211, -2.52754e-09, 1.69797, -8.8742e-08, 4.76837e-07, -4.86374e-05, 0.101401)
+
+[node name="Cylinder_005" parent="Model/WindFarm" index="1"]
+transform = Transform3D(0.257683, 0, 0, 0, 2.83822, 0, 0, 0, 0.257683, 2.21288, 0, 2.21729)
+
+[node name="Cylinder_006" parent="Model/WindFarm" index="2"]
+transform = Transform3D(0.44707, 0, 0, 0, 0, -0.44707, 0, 0.656894, 0, 2.21288, 5.72288, 2.21729)
+
+[node name="Cylinder_007" parent="Model/WindFarm" index="3"]
+transform = Transform3D(0.165093, 0, 0, 0, -1.96807e-08, -0.165093, 0, 0.165093, -1.96807e-08, 2.21288, 5.72288, 1.49474)
+
+[node name="Empty_001" parent="Model/WindFarm" index="4"]
+transform = Transform3D(0.588939, 4.49325e-06, 0, -4.49325e-06, 0.588939, 0, 0, 0, 0.588939, -2.11625, 5.74394, -3.07711)
+
+[node name="Plane_003" parent="Model/WindFarm/Empty_001" index="0"]
+transform = Transform3D(0.0848102, 0, 0, 0, 0, -0.744422, 0, 1.69797, 0, 0, -4.86374e-05, 0.101401)
+
+[node name="Plane_004" parent="Model/WindFarm/Empty_001" index="1"]
+transform = Transform3D(-0.0424051, -5.06034e-08, -0.644688, -0.0734478, 0, 0.372211, 2.52754e-09, 1.69797, -8.8742e-08, 0, -4.86374e-05, 0.101401)
+
+[node name="Plane_005" parent="Model/WindFarm/Empty_001" index="2"]
+transform = Transform3D(-0.0424051, 1.5181e-07, 0.644688, 0.0734478, 0, 0.372211, -2.52754e-09, 1.69797, -8.8742e-08, 0, -4.86374e-05, 0.101401)
+
+[node name="Cylinder_008" parent="Model/WindFarm" index="5"]
+transform = Transform3D(0.257683, 0, 0, 0, 2.83822, 0, 0, 0, 0.257683, -2.11625, 0.021059, -2.18947)
+
+[node name="Cylinder_009" parent="Model/WindFarm" index="6"]
+transform = Transform3D(0.44707, 0, 0, 0, 0, -0.44707, 0, 0.656894, 0, -2.11625, 5.74394, -2.18947)
+
+[node name="Cylinder_010" parent="Model/WindFarm" index="7"]
+transform = Transform3D(0.165093, 0, 0, 0, -1.96807e-08, -0.165093, 0, 0.165093, -1.96807e-08, -2.11625, 5.74394, -2.91201)
+
+[node name="AnimationTree" type="AnimationTree" parent="Model/WindFarm" index="9"]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_w6y5p")
+}
+tree_root = SubResource("AnimationNodeBlendTree_4shsg")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Add2/add_amount = 1.0
+
+[editable path="Model/WindFarm"]
+[editable path="Lightning"]

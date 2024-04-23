@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=3 uid="uid://1jlx5j4w4r2m"]
+
+[ext_resource type="Script" path="res://Scenes/main_ui.gd" id="1_4cxtm"]
+[ext_resource type="Texture2D" uid="uid://cdt3j6e0eg06" path="res://Graphics/UIBar.png" id="2_an2t7"]
+[ext_resource type="Texture2D" uid="uid://dqtal1vnfhxu4" path="res://Graphics/Icons/time_sign.png" id="3_lnwbe"]
+[ext_resource type="Texture2D" uid="uid://by5a77wpr2bri" path="res://Graphics/Icons/Dollar_sign.png" id="3_q1sbl"]
+[ext_resource type="Texture2D" uid="uid://6wh5bcsf122l" path="res://Graphics/Icons/electricity_sign.png" id="4_7dim8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmhl2"]
+resource_local_to_scene = true
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_btj8q"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cxtm")
+
+[node name="timeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Year:  Day:"
+
+[node name="energyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 82.0
+offset_bottom = 46.0
+text = "energy"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenBtn" type="Button" parent="MarginContainer"]
+layout_mode = 2
+flat = true
+
+[node name="TopBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TopBar"]
+layout_mode = 2
+texture = ExtResource("2_an2t7")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -7.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/TextureRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TimeContainer" type="MarginContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HSplitContainer" type="HBoxContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/HSplitContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(20, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_lnwbe")
+stretch_mode = 4
+
+[node name="TimeLabel" type="Label" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/HSplitContainer"]
+layout_mode = 2
+text = "Year and day"
+label_settings = SubResource("LabelSettings_xmhl2")
+
+[node name="MoneyContainer" type="MarginContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HSplitContainer" type="HBoxContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/MoneyContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/MoneyContainer/HSplitContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(20, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_q1sbl")
+stretch_mode = 4
+
+[node name="MoneyLabel" type="Label" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/MoneyContainer/HSplitContainer"]
+layout_mode = 2
+text = "Money"
+label_settings = SubResource("LabelSettings_xmhl2")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/MoneyContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="IncomeLabel" type="Label" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/MoneyContainer/HSplitContainer/MarginContainer"]
+layout_mode = 2
+text = "+income"
+label_settings = SubResource("LabelSettings_btj8q")
+
+[node name="EnergyContainer" type="MarginContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HSplitContainer" type="HBoxContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/EnergyContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/EnergyContainer/HSplitContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_7dim8")
+stretch_mode = 4
+
+[node name="EnergyLabel" type="Label" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/EnergyContainer/HSplitContainer"]
+layout_mode = 2
+text = "Energy"
+label_settings = SubResource("LabelSettings_xmhl2")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/EnergyContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="SurplusLabel" type="Label" parent="TopBar/TextureRect/MarginContainer/HBoxContainer/EnergyContainer/HSplitContainer/MarginContainer"]
+layout_mode = 2
+text = "+income"
+label_settings = SubResource("LabelSettings_btj8q")
+
+[connection signal="button_up" from="MarginContainer/ScreenBtn" to="." method="_on_screen_btn_button_up"]

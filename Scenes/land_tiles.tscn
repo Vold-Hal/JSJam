@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqnsmgjiy2lru"]
+[gd_scene load_steps=5 format=3 uid="uid://cqnsmgjiy2lru"]
 
 [ext_resource type="PackedScene" uid="uid://da4qy5q62s1bs" path="res://Graphics/GroundTile.blend" id="1_7jw6e"]
 [ext_resource type="PackedScene" uid="uid://dan6qy6eh5gjf" path="res://Graphics/WaterTile.blend" id="2_l27on"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8230v"]
+albedo_color = Color(0, 0.458824, 0.101961, 1)
+metallic_specular = 0.17
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40sp5"]
 albedo_color = Color(0.0980392, 0.360784, 0.847059, 1)
+metallic_specular = 0.57
+roughness = 0.5
 
 [node name="LandTiles" type="Node3D"]
 
 [node name="GroundTile" parent="." instance=ExtResource("1_7jw6e")]
-visible = false
+
+[node name="Cube_001" parent="GroundTile" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8230v")
 
 [node name="WaterTile" parent="." instance=ExtResource("2_l27on")]
 

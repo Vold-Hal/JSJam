@@ -8,6 +8,7 @@ var building_time: float
 var building_type: String
 var building_name: String
 var building_cost: float
+var building_upkeep_cost: float
 
 var days_in_build: int = 0
 var is_built: bool = false
@@ -16,12 +17,16 @@ var meshes
 var heights = []
 
 func _ready():
-	print("saf")
+	if get_node_or_null("Model/WindFarm"):
+		meshes = [$Model/WindFarm] 
+		heights = [5]
+		return
+	
 	for PE in $Particles.get_children():
 		PE.emitting = false
 	meshes = $Model.get_child(0).get_children()
 	meshes.shuffle()
-	for mesh in meshes:
+	for mesh in meshes: 
 		heights.append(mesh.get_aabb().size.y * mesh.scale.y)
 
 func _process(_delta):
@@ -40,6 +45,9 @@ func next_day():
 		days_in_build += 1
 		if days_in_build >= building_time * 365:
 			is_built = true
+			$"Lightning animation".play("lightning_jump")
+			if get_node_or_null("Model/WindFarm/AnimationTree"):
+				$Model/WindFarm/AnimationTree.active = true
 			for PE in $Particles.get_children():
 				PE.emitting = true
 	return 0

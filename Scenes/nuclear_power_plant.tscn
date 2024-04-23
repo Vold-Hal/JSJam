@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dullds2pp71ho"]
+[gd_scene load_steps=10 format=3 uid="uid://dullds2pp71ho"]
 
 [ext_resource type="PackedScene" uid="uid://catdm88ukq6bm" path="res://Scenes/building_template.tscn" id="1_4mlqn"]
 [ext_resource type="PackedScene" uid="uid://bshk6ns3l36hs" path="res://Graphics/Nuclear.blend" id="2_de3k5"]
@@ -21,9 +21,6 @@ offsets = PackedFloat32Array(0, 0.26, 0.606667, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.716296, 0.716296, 0.716296, 0.898039, 0.60933, 0.60933, 0.60933, 0.682353, 1, 1, 1, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_cg44i"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bk1s8"]
-albedo_color = Color(0.752941, 0.752941, 0.752941, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd8eq"]
 albedo_color = Color(0.784314, 0.0784314, 0.0235294, 1)
@@ -67,22 +64,17 @@ initial_velocity_max = 1.0
 scale_amount_curve = SubResource("Curve_2nt3o")
 color_ramp = SubResource("Gradient_ahfcj")
 
-[node name="Reactors" parent="Model" index="0" instance=ExtResource("2_de3k5")]
+[node name="Nuclear" parent="Model" index="0" instance=ExtResource("2_de3k5")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.1202, -0.0140066, 0.128434)
 
-[node name="Cylinder" parent="Model/Reactors" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+[node name="Cylinder" parent="Model/Nuclear" index="0"]
 surface_material_override/1 = SubResource("StandardMaterial3D_nd8eq")
 
-[node name="Cylinder_001" parent="Model/Reactors" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+[node name="Cylinder_001" parent="Model/Nuclear" index="1"]
 surface_material_override/1 = SubResource("StandardMaterial3D_nd8eq")
 
-[node name="Cylinder_002" parent="Model/Reactors" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
+[node name="Cylinder_002" parent="Model/Nuclear" index="2"]
 surface_material_override/1 = SubResource("StandardMaterial3D_nd8eq")
 
-[node name="Cube_001" parent="Model/Reactors" index="3"]
-surface_material_override/0 = SubResource("StandardMaterial3D_bk1s8")
-
-[editable path="Model/Reactors"]
+[editable path="Model/Nuclear"]
+[editable path="Lightning"]

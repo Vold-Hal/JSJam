@@ -1,6 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://catdm88ukq6bm"]
+[gd_scene load_steps=6 format=3 uid="uid://catdm88ukq6bm"]
 
 [ext_resource type="Script" path="res://BuildingTemplate.gd" id="1_f41m0"]
+[ext_resource type="PackedScene" uid="uid://r3ak1umyri8h" path="res://Graphics/Lightning.blend" id="2_7nb43"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fegma"]
+albedo_color = Color(1, 1, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 0.58
+
+[sub_resource type="Animation" id="Animation_fpapd"]
+resource_name = "lightning_jump"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 11.9382, 0), Vector3(0, 10.5569, 0), Vector3(0, 11.9382, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v66rh"]
+_data = {
+"lightning_jump": SubResource("Animation_fpapd")
+}
 
 [node name="BuildingTemplate" type="Node3D"]
 script = ExtResource("1_f41m0")
@@ -8,3 +76,18 @@ script = ExtResource("1_f41m0")
 [node name="Particles" type="Node3D" parent="."]
 
 [node name="Model" type="Node3D" parent="."]
+
+[node name="Lightning" parent="." instance=ExtResource("2_7nb43")]
+visible = false
+
+[node name="Plane" parent="Lightning" index="0"]
+transform = Transform3D(1.41919, 0, 0, 0, -3.17803e-07, -2.66592, 0, 2.66592, -3.17803e-07, 0, 0.248938, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fegma")
+
+[node name="Lightning animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Lightning")
+libraries = {
+"": SubResource("AnimationLibrary_v66rh")
+}
+
+[editable path="Lightning"]

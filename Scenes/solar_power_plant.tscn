@@ -59,3 +59,4 @@ transform = Transform3D(1.14967e-07, -0.0970423, -0.906976, 0, 0.506873, -0.1736
 transform = Transform3D(1.14967e-07, -0.0970423, -0.906976, 0, 0.506873, -0.173643, 0.964411, 3.84509e-09, 1.10084e-07, 3.09778, 0, 3.09722)
 
 [editable path="Model/SolarPanels"]
+[editable path="Lightning"]

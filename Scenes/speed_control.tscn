@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dymcnb4m0w7nv"]
+
+[ext_resource type="Texture2D" uid="uid://brwf60bp5041j" path="res://Graphics/Icons/pause_btn_base.png" id="1_ljafn"]
+[ext_resource type="Texture2D" uid="uid://bjiekd0k602xv" path="res://Graphics/Icons/pause_btn_pressed.png" id="2_3wtle"]
+[ext_resource type="Texture2D" uid="uid://c5s0smwq7jkef" path="res://Graphics/Icons/pause_btn_hovered.png" id="3_ey5xf"]
+[ext_resource type="Texture2D" uid="uid://chyl313qbk0q0" path="res://Graphics/Icons/speed1_btn_base.png" id="4_f310u"]
+[ext_resource type="Texture2D" uid="uid://bj6a215nyyga0" path="res://Graphics/Icons/speed1_btn_pressed.png" id="5_q2b0d"]
+[ext_resource type="Texture2D" uid="uid://dpcpnp5ad5t07" path="res://Graphics/Icons/speed1_btn_hovered.png" id="6_a78m7"]
+[ext_resource type="Texture2D" uid="uid://ch8px5ecksdey" path="res://Graphics/Icons/speed2_btn_base.png" id="7_1d3jf"]
+[ext_resource type="Texture2D" uid="uid://dx6r3rps6eimt" path="res://Graphics/Icons/speed2_btn_pressed.png" id="8_g2luh"]
+[ext_resource type="Texture2D" uid="uid://qquft1vdp4bc" path="res://Graphics/Icons/speed2_btn_hovered.png" id="9_0gxkb"]
+[ext_resource type="Texture2D" uid="uid://dx3nvl3d8omj4" path="res://Graphics/Icons/speed3_btn_base.png" id="10_efpq8"]
+[ext_resource type="Texture2D" uid="uid://bjjues3uonwog" path="res://Graphics/Icons/speed3_btn_pressed.png" id="11_xarn6"]
+[ext_resource type="Texture2D" uid="uid://gcjj8i74uvt2" path="res://Graphics/Icons/speed3_btn_hovered.png" id="12_lkxwj"]
+
+[node name="SpeedControl" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchor_right = 0.07
+anchor_bottom = 0.028
+offset_right = 1071.36
+offset_bottom = 629.856
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="PauseButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.006
+anchor_bottom = 0.014
+offset_right = 0.0879998
+offset_bottom = -0.0720005
+toggle_mode = true
+texture_normal = ExtResource("1_ljafn")
+texture_pressed = ExtResource("2_3wtle")
+texture_hover = ExtResource("3_ey5xf")
+stretch_mode = 4
+
+[node name="Speed1Button" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.012
+anchor_bottom = 0.014
+offset_left = 7.0
+offset_right = 0.176
+offset_bottom = -0.0720005
+toggle_mode = true
+texture_normal = ExtResource("4_f310u")
+texture_pressed = ExtResource("5_q2b0d")
+texture_hover = ExtResource("6_a78m7")
+stretch_mode = 4
+
+[node name="Speed2Button" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.012
+anchor_bottom = 0.014
+offset_left = 14.0
+offset_right = 11.176
+offset_bottom = -0.0720005
+toggle_mode = true
+texture_normal = ExtResource("7_1d3jf")
+texture_pressed = ExtResource("8_g2luh")
+texture_hover = ExtResource("9_0gxkb")
+stretch_mode = 4
+
+[node name="Speed3Button" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.014
+offset_left = 25.0
+offset_right = -0.32
+offset_bottom = -0.0720005
+toggle_mode = true
+texture_normal = ExtResource("10_efpq8")
+texture_pressed = ExtResource("11_xarn6")
+texture_hover = ExtResource("12_lkxwj")
+stretch_mode = 4

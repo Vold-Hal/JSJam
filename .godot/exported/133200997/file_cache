@@ -1,0 +1,11 @@
+res://Scenes/building_template.tscn::302cc75474b48e9fa2c6ff07486125e7::1713897187::res://.godot/exported/133200997/export-426905f2f57104a80fbf6875d0df529d-building_template.scn
+res://Scenes/building_ui.tscn::12a836853ac41e84b2f9f0814b4bfcea::1713897187::res://.godot/exported/133200997/export-03ba61d84a7601506be95d27906d50ba-building_ui.scn
+res://Scenes/coal_power_plant.tscn::698e25ef53d1bdec748ac277795a6718::1713897187::res://.godot/exported/133200997/export-447ad47cda5ad370a35929d0af0749c9-coal_power_plant.scn
+res://Scenes/land_tiles.tscn::651abc13560703ba72c4d6d2142a1ed9::1713897186::res://.godot/exported/133200997/export-8048e73c38e1e3d72adfc62790844dfa-land_tiles.scn
+res://Scenes/main_level.tscn::c02bcb77b0a93e87c459177ba6020007::1713897186::res://.godot/exported/133200997/export-37b2bb226c632007c2a980b065e052ac-main_level.scn
+res://Scenes/main_ui.tscn::9ef21f09b0e55ccc7c8da1d017eec3cf::1713897199::res://.godot/exported/133200997/export-33ce1161e3d6790ba015735b1a657835-main_ui.scn
+res://Scenes/nuclear_power_plant.tscn::8573bcec644333d012ab332c41b9ca00::1713870083::res://.godot/exported/133200997/export-e7b4ddf188429f701af0e76bbad8c682-nuclear_power_plant.scn
+res://Scenes/solar_power_plant.tscn::659ae657916453033fb9e520f7d45df6::1713870083::res://.godot/exported/133200997/export-c0419f816792535c354a191b1f1e11ef-solar_power_plant.scn
+res://LandTilesLibrary.tres::bd696c2685a24f2f7c0017fc7b00eb9d::1713894650::res://.godot/exported/133200997/export-0b9e2d5a508ad53904716afece8fe436-LandTilesLibrary.res
+res://Scenes/wind_power_plant.tscn::7a3962b7057a8c9f71cae6cce42e9124::1713870083::res://.godot/exported/133200997/export-c10b303fe5655927296709acb7a4e5ce-wind_power_plant.scn
+res://Scenes/speed_control.tscn::bd24ac87d954f592ca28fb2113693cfd::1713897187::res://.godot/exported/133200997/export-4d36db12faa731384e4ed1b9633b2196-speed_control.scn
