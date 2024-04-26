@@ -27,8 +27,15 @@ func display_building_options(options: Array[PackedScene]):
 	ready_to_build = true
 	
 
+func _ready():
+	$WarningLabel.modulate.a = 0
+	
 func choose_building_option(building_name, cost):
 	if $"../../Buildings".money >= cost:
 		$"../../Buildings".money -= cost
 		$"../../Buildings".start_building_process(building_name)
+	else: 
+		$WarningLabel/AnimationPlayer.play("text_move")
+
+		
 

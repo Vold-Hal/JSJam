@@ -1,0 +1,167 @@
+[gd_scene load_steps=6 format=3 uid="uid://qv63xuilav8d"]
+
+[ext_resource type="Script" path="res://Scenes/event_ui.gd" id="1_aoplf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cdqua"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2koxt"]
+line_spacing = 0.0
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n36ua"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lnhk"]
+font_size = 14
+
+[node name="EventUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(960, 559)
+script = ExtResource("1_aoplf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.35
+anchor_right = 0.75
+anchor_bottom = 0.65
+color = Color(0.94902, 0.92549, 0.882353, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="EventName" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Event name"
+label_settings = SubResource("LabelSettings_cdqua")
+
+[node name="EventDescription" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(0, 105)
+layout_mode = 2
+text = "Event descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent descriptionEvent description"
+label_settings = SubResource("LabelSettings_2koxt")
+autowrap_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 137.795)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 0
+
+[node name="name" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Buttons/Button"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2(1071.93, -257.5)
+text = "How dare you? We'll report you to the proper authorities."
+label_settings = SubResource("LabelSettings_n36ua")
+
+[node name="desription" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Buttons/Button"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.491
+anchor_right = 1.0
+anchor_bottom = 0.938
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1071.93, -282.05)
+text = "-20% solar power plant production, -30% solar power plants upkeep"
+label_settings = SubResource("LabelSettings_3lnhk")
+clip_text = true
+
+[node name="Button2" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 0
+
+[node name="name" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Buttons/Button2"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2(1071.93, -311.5)
+text = "Option text text text text text text"
+label_settings = SubResource("LabelSettings_n36ua")
+
+[node name="desription" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Buttons/Button2"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.491
+anchor_right = 1.0
+anchor_bottom = 0.938
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1071.93, -336.05)
+text = "-50 000 000$, -30% nuclear power plant upkeep cost, +20% nuclear power production"
+label_settings = SubResource("LabelSettings_3lnhk")
+clip_text = true
+
+[node name="Button3" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 0
+
+[node name="name" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Buttons/Button3"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2(1071.93, -365.5)
+text = "Option text text text text text text"
+label_settings = SubResource("LabelSettings_n36ua")
+
+[node name="desription" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Buttons/Button3"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.491
+anchor_right = 1.0
+anchor_bottom = 0.938
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1071.93, -390.05)
+text = "This is a very long description of an option just to test how it will look "
+label_settings = SubResource("LabelSettings_3lnhk")
+clip_text = true
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Buttons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Buttons/Button3" to="." method="_on_button_3_pressed"]

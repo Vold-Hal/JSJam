@@ -1,0 +1,152 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmiggx27ryb00"]
+
+[ext_resource type="Script" path="res://Scenes/end_screen.gd" id="1_xls34"]
+
+[sub_resource type="Gradient" id="Gradient_o4ci1"]
+offsets = PackedFloat32Array(0, 0.420792, 1)
+colors = PackedColorArray(0, 0, 0, 0.415686, 0, 0, 0, 0.410891, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r7vfe"]
+gradient = SubResource("Gradient_o4ci1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_ehew4"]
+resource_name = "text_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ResultLabel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/ResultLabel:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Button:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77p5s"]
+_data = {
+"text_animation": SubResource("Animation_ehew4")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_am7iw"]
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_ykae6"]
+font_size = 32
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xls34")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.001
+offset_right = 0.0799561
+offset_bottom = -0.0800781
+texture = SubResource("GradientTexture2D_r7vfe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_77p5s")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 0.38
+anchor_right = 0.7
+anchor_bottom = 0.62
+
+[node name="ResultLabel" type="Label" parent="Control"]
+modulate = Color(1, 1, 1, 0.9)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -5.6
+offset_right = 0.00012207
+offset_bottom = 169.4
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_am7iw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0.4)
+custom_minimum_size = Vector2(0, 70.99)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -22.5
+offset_right = 85.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start again"
+label_settings = SubResource("LabelSettings_ykae6")
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

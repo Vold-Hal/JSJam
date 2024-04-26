@@ -1,12 +1,15 @@
 extends Node3D
 
 
-var occupied: Array = [] # Dictionary to store tile positions
+var occupied = {} # Dictionary to store buildings positions
 
 var building_UI_scene = preload("res://Scenes/building_ui.tscn")
+var destroy_UI_scene = preload("res://Scenes/destroy_ui.tscn")
 var building_UI
 var choosen_coords: Vector3i = Vector3i.MIN
 var last_mouse_click_position
+
+var buildings = {}
 
 func _mouse_clicked_on_screen():
 	if choosen_coords == Vector3i.MIN:
@@ -26,25 +29,38 @@ func choose_new_coords():
 	if result:
 		var collision_point = result.position
 		choosen_coords = $".".local_to_map(collision_point) + Vector3i.DOWN
-		if $".".get_cell_item(choosen_coords) == 0 && choosen_coords not in occupied:
+		if $".".get_cell_item(choosen_coords) == 0:
 			return true
 	choosen_coords = Vector3i.MIN
 	return false
 
 func open_building_menu():
-	building_UI = building_UI_scene.instantiate()
-	$"../MainUI".add_child(building_UI)
-	var arr = $"../Buildings".power_plants
-	building_UI.display_building_options(arr)
-	building_UI.global_position = last_mouse_click_position 
+	if occupied.has(choosen_coords):
+		building_UI = destroy_UI_scene.instantiate()
+		$"../MainUI".add_child(building_UI)
+		building_UI.global_position = last_mouse_click_position 
+	else:
+		building_UI = building_UI_scene.instantiate()
+		$"../MainUI".add_child(building_UI)
+		var arr = $"../Buildings".power_plants
+		building_UI.display_building_options(arr)
+		building_UI.global_position = last_mouse_click_position 
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			last_mouse_click_position = event.position
 
-func request_building_start():
-	occupied.append(choosen_coords)
+func request_destroy_start():
+	$"../BuiltAudioPlayer".play()
+	occupied[choosen_coords].queue_free()
+	occupied.erase(choosen_coords)
+	choosen_coords = Vector3i.MIN
+	if building_UI:
+		building_UI.queue_free()
+
+func request_building_start(building):
+	occupied[choosen_coords] = building
 	var return_coords = $".".map_to_local(choosen_coords + Vector3i.UP)
 	choosen_coords = Vector3i.MIN
 	if building_UI:

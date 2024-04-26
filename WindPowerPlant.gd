@@ -4,7 +4,7 @@ extends BuildingTemplate
 
 
 func _init():
-	energy_production = 7
+	energy_production = 6
 	greenness = 1
 	building_type = "PowerPlant"
 	building_time = 2

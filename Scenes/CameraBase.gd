@@ -54,6 +54,18 @@ func _input(event):
 		
 
 func _process(delta):
+	if Input.is_action_pressed("up"):
+		target_translate.z -= 1
+	if Input.is_action_pressed("left"):
+		target_translate.x -= 1
+	if Input.is_action_pressed("down"):
+		target_translate.z += 1
+	if Input.is_action_pressed("right"):
+		target_translate.x += 1
+	if Input.is_action_pressed("rotate_left"):
+		target_rotation -= 2
+	if Input.is_action_pressed("rotate_right"):
+		target_rotation += 2
 	position.x = clamp(position.x, BORDERS[0], BORDERS[1])
 	position.z = clamp(position.z, BORDERS[2], BORDERS[3])
 	$CameraXRotation/Camera3D.position.z = lerp($CameraXRotation/Camera3D.position.z, target_zoom, delta * 10)

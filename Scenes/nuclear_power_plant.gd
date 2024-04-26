@@ -10,4 +10,4 @@ func _init():
 	building_time = 8
 	building_name = "Nuclear Power Plant"
 	building_cost = 20
-	building_upkeep_cost = 0.01
+	building_upkeep_cost = 0.02

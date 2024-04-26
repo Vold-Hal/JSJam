@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1jlx5j4w4r2m"]
+[gd_scene load_steps=17 format=3 uid="uid://1jlx5j4w4r2m"]
 
 [ext_resource type="Script" path="res://Scenes/main_ui.gd" id="1_4cxtm"]
 [ext_resource type="Texture2D" uid="uid://cdt3j6e0eg06" path="res://Graphics/UIBar.png" id="2_an2t7"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dymcnb4m0w7nv" path="res://Scenes/speed_control.tscn" id="4_tp7hu"]
 [ext_resource type="Texture2D" uid="uid://xnxx2bjmrmak" path="res://Graphics/Icons/stars_bar_fill.png" id="5_6ql1f"]
 [ext_resource type="Texture2D" uid="uid://81ear3i18yl5" path="res://Graphics/Icons/arrow_up.png" id="6_yse6l"]
+[ext_resource type="Texture2D" uid="uid://c2u1n1o6g7thu" path="res://Graphics/Icons/music_icon.png" id="11_iog8p"]
+[ext_resource type="Texture2D" uid="uid://rrxf6cagho4y" path="res://Graphics/Icons/no_music_icon.png" id="12_qs2mc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xmhl2"]
 resource_local_to_scene = true
@@ -17,6 +19,17 @@ font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_btj8q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_surc6"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gomul"]
+resource_local_to_scene = true
+line_spacing = 1.0
+font_size = 22
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -53,7 +66,6 @@ texture = ExtResource("2_an2t7")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TopBar/TextureRect"]
-texture_filter = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -253,10 +265,138 @@ layout_mode = 2
 text = "+income"
 label_settings = SubResource("LabelSettings_btj8q")
 
+[node name="tutorial_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.112
+anchor_bottom = 0.09
+offset_right = 1.95999
+offset_bottom = -0.200005
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="Label" type="Label" parent="tutorial_button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.787
+anchor_bottom = 1.0
+offset_right = -0.779007
+offset_bottom = -1.0
+text = "TUTORIAL(T)"
+label_settings = SubResource("LabelSettings_surc6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.224
+offset_left = 427.0
+offset_top = 30.0
+offset_right = 124.28
+offset_bottom = 30.272
+text = "Timer and buttons for time control.
+You can also change speed with '1', '2', '3' buttons"
+label_settings = SubResource("LabelSettings_gomul")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.224
+offset_left = 652.0
+offset_top = -3.0
+offset_right = 308.28
+offset_bottom = 2.27199
+text = "Share of market you control
+100% - you win
+0% -  you lose"
+label_settings = SubResource("LabelSettings_gomul")
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.224
+offset_left = 832.0
+offset_top = 1.0
+offset_right = 498.28
+offset_bottom = 6.27199
+text = "Your popularity. Affects the growth of your market share"
+label_settings = SubResource("LabelSettings_gomul")
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.224
+offset_left = 1044.0
+offset_top = 5.0
+offset_right = 710.28
+offset_bottom = 10.272
+text = "Your money and income per day"
+label_settings = SubResource("LabelSettings_gomul")
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.224
+offset_left = 1276.0
+offset_top = 4.0
+offset_right = 942.28
+offset_bottom = 9.27199
+text = "Your energy production and demand(based on your market share)"
+label_settings = SubResource("LabelSettings_gomul")
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.224
+offset_left = 617.0
+offset_top = 458.0
+offset_right = 798.28
+offset_bottom = 463.272
+text = "Press anywhere to build your first power plant!"
+label_settings = SubResource("LabelSettings_gomul")
+autowrap_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.951
+anchor_right = 1.0
+anchor_bottom = 0.083
+offset_left = 9.07996
+offset_top = 16.0
+offset_right = -21.0
+offset_bottom = -12.64
+toggle_mode = true
+texture_normal = ExtResource("11_iog8p")
+texture_pressed = ExtResource("12_qs2mc")
+stretch_mode = 4
+
 [connection signal="button_up" from="MarginContainer/ScreenBtn" to="." method="_on_screen_btn_button_up"]
 [connection signal="pressed" from="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/MarginContainer/SpeedControl/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/MarginContainer/SpeedControl/Speed1Button" to="." method="_on_speed_1_button_pressed"]
 [connection signal="pressed" from="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/MarginContainer/SpeedControl/Speed2Button" to="." method="_on_speed_2_button_pressed"]
 [connection signal="pressed" from="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/MarginContainer/SpeedControl/Speed3Button" to="." method="_on_speed_3_button_pressed"]
+[connection signal="pressed" from="tutorial_button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]
 
 [editable path="TopBar/TextureRect/MarginContainer/HBoxContainer/TimeContainer/MarginContainer/SpeedControl"]

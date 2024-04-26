@@ -20,7 +20,9 @@ var old_control_percent = 0
 func _ready():
 	_on_speed_1_button_pressed()
 
-func _process(delta):
+func _process(delta): 
+	if Input.is_action_pressed("tutorial"):
+		_on_tutorial_button_pressed()
 	if Input.is_action_pressed("pause"):
 		_on_pause_button_pressed()
 	elif Input.is_action_pressed("speed1"):
@@ -115,3 +117,16 @@ func change_speed_btn(index):
 	for btn in speed_buttons_parent.get_children():
 		btn.button_pressed = false
 	speed_buttons_parent.get_children()[index].button_pressed = true
+
+
+
+
+func _on_tutorial_button_pressed():
+	$Tutorial.visible = !$Tutorial.visible
+
+
+func _on_texture_button_toggled(toggled_on):
+	if !toggled_on:
+		$"../AudioStreamPlayer".volume_db = -10
+	else:
+		$"../AudioStreamPlayer".volume_db = -1000 
